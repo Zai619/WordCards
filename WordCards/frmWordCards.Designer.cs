@@ -42,9 +42,12 @@
             this.txtWord = new System.Windows.Forms.TextBox();
             this.timPlayer = new System.Windows.Forms.Timer(this.components);
             this.cbShuffle = new System.Windows.Forms.CheckBox();
+            this.tkbSpeed = new System.Windows.Forms.TrackBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.sssWord.SuspendLayout();
             this.palMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tkbSpeed)).BeginInit();
             this.SuspendLayout();
             // 
             // sssWord
@@ -82,6 +85,8 @@
             // palMain
             // 
             this.palMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(242)))));
+            this.palMain.Controls.Add(this.textBox1);
+            this.palMain.Controls.Add(this.tkbSpeed);
             this.palMain.Controls.Add(this.cbShuffle);
             this.palMain.Controls.Add(this.picLogo);
             this.palMain.Controls.Add(this.btnAutoPlay);
@@ -128,7 +133,7 @@
             this.txtHelp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtHelp.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtHelp.ForeColor = System.Drawing.Color.Red;
-            this.txtHelp.Location = new System.Drawing.Point(317, 295);
+            this.txtHelp.Location = new System.Drawing.Point(333, 323);
             this.txtHelp.Margin = new System.Windows.Forms.Padding(4);
             this.txtHelp.Multiline = true;
             this.txtHelp.Name = "txtHelp";
@@ -165,7 +170,7 @@
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(278, 209);
+            this.textBox2.Size = new System.Drawing.Size(278, 165);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "<-us: calculus 小圓石>";
             // 
@@ -193,12 +198,39 @@
             // cbShuffle
             // 
             this.cbShuffle.AutoSize = true;
-            this.cbShuffle.Location = new System.Drawing.Point(294, 253);
+            this.cbShuffle.Location = new System.Drawing.Point(336, 297);
             this.cbShuffle.Name = "cbShuffle";
             this.cbShuffle.Size = new System.Drawing.Size(89, 19);
             this.cbShuffle.TabIndex = 6;
             this.cbShuffle.Text = "隨機播放";
             this.cbShuffle.UseVisualStyleBackColor = true;
+            // 
+            // tkbSpeed
+            // 
+            this.tkbSpeed.Location = new System.Drawing.Point(163, 321);
+            this.tkbSpeed.Maximum = 5;
+            this.tkbSpeed.Minimum = 1;
+            this.tkbSpeed.Name = "tkbSpeed";
+            this.tkbSpeed.Size = new System.Drawing.Size(146, 56);
+            this.tkbSpeed.TabIndex = 7;
+            this.tkbSpeed.Value = 2;
+            this.tkbSpeed.Scroll += new System.EventHandler(this.tkbSpeed_Scroll);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(242)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(4, 327);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(165, 54);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.Text = "速度調整(愈右邊愈慢)";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // frmWordCards
             // 
@@ -222,6 +254,7 @@
             this.palMain.ResumeLayout(false);
             this.palMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tkbSpeed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,6 +274,8 @@
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Timer timPlayer;
         private System.Windows.Forms.CheckBox cbShuffle;
+        private System.Windows.Forms.TrackBar tkbSpeed;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

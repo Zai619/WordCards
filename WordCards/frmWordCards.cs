@@ -106,6 +106,7 @@ namespace WordCards
                 this.ShowWord(_WordList[0]);
                 tsslMessage.Text = $"單字數量：{_WordList.Count}";
             }
+            timPlayer.Interval = tkbSpeed.Value * 1000;
         }
         /// <summary>
         /// 播放目前選取的單字
@@ -244,6 +245,19 @@ namespace WordCards
                 PlaySelectedWord();
                 _WordList.SaveToFile(strWordFile);
             }
+        }
+
+        private void tkbSpeed_Scroll(object sender, EventArgs e)
+        {
+            timPlayer.Interval = tkbSpeed.Value * 1000;
+
+            // 選做：可以同步更新狀態列或提示文字，讓使用者知道現在是幾秒
+            tsslMessage.Text = $"目前播放速度：{tkbSpeed.Value} 秒 / 個";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
