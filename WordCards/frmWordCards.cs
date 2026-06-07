@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace WordCards
 {
@@ -27,6 +28,8 @@ namespace WordCards
         /// 是否自動播放
         /// </summary>
         bool isPlay = false;
+        // 在 frmWordCards 內的其他全域變數旁加入這一行
+        Random _rand = new Random();
         public frmWordCards()
         {
             InitializeComponent();
@@ -141,18 +144,34 @@ namespace WordCards
         private void NextWordList()
         {
             // 將焦點移到單字清單
-            lstWordList.Focus();
-            // 判斷目前選的下一項是否超過清單的項目數
-            if (lstWordList.SelectedIndex + 1 >= lstWordList.Items.Count)
-                lstWordList.SelectedIndex = 0; // 如果超過就回到第一項
+            lstWordList.Focus(); // 講義簡報誤打成 1stWordList，請依你專案實際名稱為主（如 lstWordList）
+
+            // 檢查有沒有勾選隨機播放
+            if (cbShuffle.Checked)
+            {
+                // 確保清單內有東西才抽
+                if (lstWordList.Items.Count > 0)
+                {
+                    // 隨機抽一個 0 到 (總數-1) 的索引
+                    lstWordList.SelectedIndex = _rand.Next(0, lstWordList.Items.Count);
+                }
+            }
             else
-                lstWordList.SelectedIndex++; // 如果沒有就選擇下一項
-                                             // 計算目前 lstWordList 顯示的行數
+            {
+                // --- 以下是第 46 頁原本的依序播放邏輯 ---
+                // 判斷目前選的下一項是否超過清單的項目數
+                if (lstWordList.SelectedIndex + 1 >= lstWordList.Items.Count)
+                    lstWordList.SelectedIndex = 0; //如果超過就回到第一項
+                else
+                    lstWordList.SelectedIndex++; //如果沒有就選擇下一項
+            }
+
+            // --- 以下保持原本講義的滾動條保持在中間的邏輯 ---
             int lstRows = lstWordList.Height / lstWordList.GetItemHeight(0);
-            // 如果目前選的項目大於 lstRows / 2
             if (lstWordList.SelectedIndex >= lstRows / 2)
-                // 將 lstWordList 的 選項保持在中間
+            {
                 lstWordList.TopIndex = lstWordList.SelectedIndex - lstRows / 2;
+            }
         }
 
         private void timPlayer_Tick(object sender, EventArgs e)

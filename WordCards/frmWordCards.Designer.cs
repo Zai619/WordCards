@@ -41,6 +41,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.txtWord = new System.Windows.Forms.TextBox();
             this.timPlayer = new System.Windows.Forms.Timer(this.components);
+            this.cbShuffle = new System.Windows.Forms.CheckBox();
             this.sssWord.SuspendLayout();
             this.palMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -81,6 +82,7 @@
             // palMain
             // 
             this.palMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(242)))));
+            this.palMain.Controls.Add(this.cbShuffle);
             this.palMain.Controls.Add(this.picLogo);
             this.palMain.Controls.Add(this.btnAutoPlay);
             this.palMain.Controls.Add(this.txtHelp);
@@ -145,7 +147,7 @@
             this.txtPhonogram.Location = new System.Drawing.Point(19, 97);
             this.txtPhonogram.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhonogram.Name = "txtPhonogram";
-            this.txtPhonogram.Size = new System.Drawing.Size(123, 32);
+            this.txtPhonogram.Size = new System.Drawing.Size(278, 32);
             this.txtPhonogram.TabIndex = 2;
             this.txtPhonogram.Text = "ˋæbəkəs";
             // 
@@ -163,7 +165,7 @@
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(290, 244);
+            this.textBox2.Size = new System.Drawing.Size(278, 209);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "<-us: calculus 小圓石>";
             // 
@@ -178,7 +180,7 @@
             this.txtWord.Location = new System.Drawing.Point(19, 27);
             this.txtWord.Margin = new System.Windows.Forms.Padding(4);
             this.txtWord.Name = "txtWord";
-            this.txtWord.Size = new System.Drawing.Size(123, 40);
+            this.txtWord.Size = new System.Drawing.Size(278, 40);
             this.txtWord.TabIndex = 0;
             this.txtWord.Text = "abacus";
             this.txtWord.TextChanged += new System.EventHandler(this.txtWord_TextChanged);
@@ -187,6 +189,16 @@
             // 
             this.timPlayer.Interval = 2000;
             this.timPlayer.Tick += new System.EventHandler(this.timPlayer_Tick);
+            // 
+            // cbShuffle
+            // 
+            this.cbShuffle.AutoSize = true;
+            this.cbShuffle.Location = new System.Drawing.Point(294, 253);
+            this.cbShuffle.Name = "cbShuffle";
+            this.cbShuffle.Size = new System.Drawing.Size(89, 19);
+            this.cbShuffle.TabIndex = 6;
+            this.cbShuffle.Text = "隨機播放";
+            this.cbShuffle.UseVisualStyleBackColor = true;
             // 
             // frmWordCards
             // 
@@ -228,6 +240,7 @@
         private System.Windows.Forms.Button btnAutoPlay;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Timer timPlayer;
+        private System.Windows.Forms.CheckBox cbShuffle;
     }
 }
 
